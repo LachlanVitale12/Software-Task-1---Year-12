@@ -1,5 +1,5 @@
 //cache resources list
-self.CACHE_NAME = "wave-solution-cache-v1"
+self.CACHE_NAME = "Stat-Tracker-cache-v1"
 const urlsToCache = [
     '/',
     '/search',
@@ -13,7 +13,8 @@ const urlsToCache = [
     '/static/images/NBA_Image.webp',
     '/manifest.json',
     '/sw.js',
-    '/models.py'
+    '/models.py',
+    '/static/offline.html'
 ];
 
 //installation event listener
@@ -45,18 +46,20 @@ self.addEventListener('activate', function(event) {
     );
 });
 
-//fetch event listener
-self.addEventListener('fetch', function(event) {
-    console.log("[Service Worker] Fetching Resource...",event.request.url);
+//fetch event listener with offline fallback
+self.addEventListener('fetch', event => {
+    console.log("[Service Worker] Fetching Resource...",event.request.url); // logs each fetch request
     event.respondWith(
-        caches.match(event.request)
-            .then(function(response){
-                if (response){
-                    console.log("[Service Worker] Found in Cache...", event.request.url);
-                    return response;
-                }
+        caches.match(event.request).then(cacheRes => {
+            if (cacheRes) {
+                console.log("[Service Worker] Found in Cache...", event.request.url);
+            }   else {
                 console.log("[Service Worker] Fetching From Network: ", event.request.url);
-                return fetch(event.request);
-            })
+            }
+            return cacheRes || fetch(event.request).catch(() => {
+                console.log('[Service Worker] Network failed, serving offline fallback');
+                return caches.match('/static/offline.html'); // serves offline fallback if network fails
+            });
+        })
     );
 });
