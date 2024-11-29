@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Sort Players By Stat</h1>
+{% endblock %}
+
+{% block content %}
+<form action="/sort" method="POST">
+    <label for="stat">Select a stat:</label>
+    <select name="stat" id="stat" required>
+        <option value="GP">GP</option>
+        <option value="MPG">MPG</option>
+        <option value="FT">FT%</option>
+        <option value="TWO_P">2P%</option>
+        <option value="THREE_P">3P%</option>
+        <option value="eFG">eFG%</option>
+        <option value="PPG">PPG</option>
+        <option value="RPG">RPG</option>
+        <option value="APG">APG</option>
+        <option value="SPG">SPG</option>
+        <option value="BPG">BPG</option>
+        <option value="TPG">TPG</option>
+    </select>
+
+    <br><br>
+
+    <label for="order">Ascending or Decending:</label>
+    <select name="order" id="order" required>
+        <option value="ASC">Ascending</option>
+        <option value="DESC">Decending</option>
+    </select>
+
+    <br><br>
+
+    <input type ="submit" value="Search by stat">
+</form>
+
+
+<br><br>
+
+
+<table>
+    <thead>
+        <td>Name</td>
+        <td>Team</td>
+        <td>Pos</td>
+        <td>GP</td>
+        <td>MPG</td>
+        <td>FT%</td>
+        <td>2P%</td>
+        <td>3P%</td>
+        <td>eFG%</td>
+        <td>PPG</td>
+        <td>RPG</td>
+        <td>APG</td>
+        <td>SPG</td>
+        <td>BPG</td>
+        <td>TPG</td>
+    </thead>
+    {% for player in players %}
+    <tr>
+        <td>{{player[0]}}</td>
+        <td>{{player[1]}}</td>
+        <td>{{player[2]}}</td>
+        <td>{{player[3]}}</td>
+        <td>{{player[4]}}</td>
+        <td>{{player[5]}}</td>
+        <td>{{player[6]}}</td>
+        <td>{{player[7]}}</td>
+        <td>{{player[8]}}</td>
+        <td>{{player[9]}}</td>
+        <td>{{player[10]}}</td>
+        <td>{{player[11]}}</td>
+        <td>{{player[12]}}</td>
+        <td>{{player[13]}}</td>
+        <td>{{player[14]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Delete Player</h1>
+{% endblock %}
+
+{% block content %}
+<form action="/delete" method="POST">
+    <label for="deleted_user">Players Name: </label>
+    <input type="text" id="deleted_user" name="deleted_user" required>
+    <br><br>
+    <input type ="submit" value="Delete Player">
+</form>
+<br>
+<p>{{result}}</p>
+{% endblock %}

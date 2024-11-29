@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        if ('serviceWorker' in navigator){
+            window.addEventListener('load', function(){
+                navigator.serviceWorker.register("/sw.js").then(function(registration){
+                    console.log('ServiceWorker registration successful with scope', registration.scope);
+                },function(err) {
+                    console.log('ServiceWorker registration failed',err)
+                });
+            });
+        }
+    </script>
+    <title>NBA Stat Tracker 2023/24</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='/icons/favicon.png') }}">
+</head>
+<body>
+
+    <div>
+        <h1>{% block header %}{% endblock %}</h1>
+    </div>
+    
+    <nav class="navbar">
+        <a href="/" class="button">Home Page</a>
+        <a href="/search" class="button">Search for Player</a>
+        <a href="/sort" class="button">Sort by Stat</a>
+        <a href="/add" class="button">Add Player</a>
+        <a href="/delete" class="button">Delete Player</a>
+        <a href="/update" class="button">Update Player</a>
+        <a href="/index" class="button">Index</a>
+        <br><br>
+    </nav>
+
+    <div class="row">
+        <div class="col-9 col-s-12">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div class="col-3 hiddenimage">
+            <br>
+            <br>
+            <img src="{{ url_for('static', filename='images/NBA_Image.webp') }}" alt="NBA_Image" loading="lazy">
+        </div>
+    </div>
+</body>
+</html>

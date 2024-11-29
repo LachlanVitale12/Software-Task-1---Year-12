@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Search for Player</h1>
+{% endblock %}
+
+{% block content %}
+<form action="/search" method="POST">
+    <label for="searched_user">Players Name: </label>
+    <input type="text" id="searched_user" name="searched_user" required><br><br>
+    <input type ="submit" value="Search for Player">
+</form>
+<br>
+<p>{{result}}</p>
+<br>
+<table>
+    <thead>
+        <td>Name</td>
+        <td>Team</td>
+        <td>Pos</td>
+        <td>GP</td>
+        <td>MPG</td>
+        <td>FT%</td>
+        <td>2P%</td>
+        <td>3P%</td>
+        <td>eFG%</td>
+        <td>PPG</td>
+        <td>RPG</td>
+        <td>APG</td>
+        <td>SPG</td>
+        <td>BPG</td>
+        <td>TPG</td>
+    </thead>
+    {% for player in players %}
+    <tr>
+        <td>{{player[0]}}</td>
+        <td>{{player[1]}}</td>
+        <td>{{player[2]}}</td>
+        <td>{{player[3]}}</td>
+        <td>{{player[4]}}</td>
+        <td>{{player[5]}}</td>
+        <td>{{player[6]}}</td>
+        <td>{{player[7]}}</td>
+        <td>{{player[8]}}</td>
+        <td>{{player[9]}}</td>
+        <td>{{player[10]}}</td>
+        <td>{{player[11]}}</td>
+        <td>{{player[12]}}</td>
+        <td>{{player[13]}}</td>
+        <td>{{player[14]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
