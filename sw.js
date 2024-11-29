@@ -1,5 +1,5 @@
 //cache resources list
-self.CACHE_NAME = "Stat-Tracker-cache-v1"
+const cacheName = "Stat-Tracker-cache-v1"
 const urlsToCache = [
     '/',
     '/search',
@@ -18,27 +18,26 @@ const urlsToCache = [
 ];
 
 //installation event listener
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
     console.log("[Service Worker] Installing Service Worker and Caching Resources...");
     event.waitUntil(
-        caches.open(self.CACHE_NAME)
-            .then(function(cache) {
-                console.log("[Service Worker] Caching files...");
-                return cache.addAll(urlsToCache);
-            })
+        caches.open(cacheName).then(cache => {
+            console.log("[Service Worker] Caching files...");
+            return cache.addAll(urlsToCache);
+        })
     );
 });
 
 //activation event listener
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', event => {
     console.log("[Service Worker] Activating Service Worker and Cleaning Old Caches...");
     event.waitUntil(
-        caches.keys().then(function(cacheNames){
+        caches.keys().then(keys => {
             return Promise.all(
-                cacheNames.map(function(cache){
-                    if (cache !== self.CACHE_NAME){
-                        console.log("[Service Worker] Deleting Old Cache...",cache);
-                        return caches.delete(cache);
+                keys.map(key => {
+                    if (key !== cacheName) {
+                        console.log("[Service Worker] Deleting Old Cache...", key);
+                        return caches.delete(key);
                     }
                 })
             );
