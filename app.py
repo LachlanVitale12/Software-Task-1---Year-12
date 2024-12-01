@@ -108,8 +108,7 @@ def update():
         # Adds the user through the function at the bottom and returns the result of it being successful
         # If there is any error, the except statement would begin and return the result of an error
         try:
-            name = request.form.get("name")
-            team = request.form.get("team")
+            id = request.form.get("id")
             stat = request.form.get("stat")
             value = request.form.get("value")
             if stat == "GP":
@@ -118,7 +117,7 @@ def update():
                 value = float(value)
             else:
                 value = str(value)
-            players = update_players(stat, value, name, team)
+            players = update_players(stat, value, id)
             result = "Data added Successfully"
         except:
             players = all_players()
