@@ -1,3 +1,5 @@
+//This service worker doesnt work
+
 //cache resources list
 const cacheName = "Stat-Tracker-cache-v1"
 const urlsToCache = [
