@@ -61,7 +61,7 @@ def update_players(stat, value, name, team):
     print(f"value={value}")
     print(f"name={name}")
     print(f"team={team}")
-    cursor.execute(f'UPDATE NBA_Player_Statistics SET {stat}="{value}" WHERE NAME = "{name.capitalize()}" AND TEAM = "{team.capitalize()}"')
+    cursor.execute(f'UPDATE NBA_Player_Statistics SET {stat} = "{value}" WHERE NAME = "{name.capitalize()}" AND TEAM = "{team.capitalize()}"')
     cursor.execute(f'SELECT * FROM NBA_Player_Statistics')
     players = cursor.fetchall()
     connection.commit()
