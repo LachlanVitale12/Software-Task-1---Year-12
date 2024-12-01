@@ -57,6 +57,10 @@ def sort_players(stat, order):
 def update_players(stat, value, name, team):
     connection = sqlite3.connect("NBA_Player_Statistics.db")
     cursor = connection.cursor()
+    print(f"stat={stat}")
+    print(f"value={value}")
+    print(f"name={name}")
+    print(f"team={team}")
     cursor.execute(f'UPDATE NBA_Player_Statistics SET {stat}="{value}" WHERE NAME = "{name.capitalize()}" AND TEAM = "{team.capitalize()}"')
     cursor.execute(f'SELECT * FROM NBA_Player_Statistics')
     players = cursor.fetchall()
