@@ -59,20 +59,50 @@ ul {
 
 
 
-/* Table Style */
+/* Responsive Table Style */
 table {
     margin: 0 auto;
     border-collapse: collapse;
     width: 60%;
+    overflow-x: auto;
 }
 
-thead, td {
+.table-container {
+    overflow-x: auto;
+}
+
+th, td {
     border: 1px solid #ccc;
     padding: 8px;
+    text-align: center; /* Ensures content is centred */
 }
 
-thead {
+th {
     background-color: #dddcdc;
+}
+
+/* Responsive Design for Screens < 600px */
+@media screen and (max-width: 600px) {
+    /* Show only ID, Name, Team, PPG, RPG, and APG */
+    table td:nth-child(1),  /* ID */
+    table th:nth-child(1),
+    table td:nth-child(2),  /* Name */
+    table th:nth-child(2),
+    table td:nth-child(3),  /* Team */
+    table th:nth-child(3),
+    table td:nth-child(11),  /* PPG */
+    table th:nth-child(11),
+    table td:nth-child(12),  /* RPG */
+    table th:nth-child(12),
+    table td:nth-child(13),  /* APG */
+    table th:nth-child(13) {
+        display: table-cell;
+    }
+
+    /* Hide all other columns */
+    table td, table th {
+        display: none;
+    }
 }
 
 

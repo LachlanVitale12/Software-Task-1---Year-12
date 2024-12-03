@@ -4,9 +4,6 @@
 const cacheName = "Stat-Tracker-cache-v1"
 const urlsToCache = [
     '/',
-    '/search',
-    '/sort',
-    '/index',
     '/static/css/style.css',
     '/static/icons/favicon.png',
     '/static/icons/icon_144x144.png',
@@ -16,7 +13,7 @@ const urlsToCache = [
     '/manifest.json',
     '/sw.js',
     '/models.py',
-    '/static/offline.html'
+    '/static/offline.html',
 ];
 
 //installation event listener
