@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, send_file
-from models import all_players, search_players, add_players, delete_players, sort_players, update_players
+from models import all_players, search_players, add_players, delete_players, sort_players, update_players, search_team
 
 
 app = Flask(__name__)
@@ -28,8 +28,12 @@ def search():
     if request.method == "GET":
         players = all_players()
     elif request.method == "POST":
-        output = request.form.get("searched_user")
-        players = search_players(output)
+        if "searched_user" in request.form:
+            player_name = request.form.get("searched_user")
+            players = search_players(player_name)
+        elif "searched_team" in request.form:
+            team_name = request.form.get("searched_team")
+            players = search_team(team_name)
     result = f"{len(players)} player(s) found"
     return render_template('search.html', players=players, result=result)
 

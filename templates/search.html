@@ -10,6 +10,43 @@
     <input type="text" id="searched_user" name="searched_user" required><br><br>
     <input type ="submit" value="Search for Player">
 </form>
+<br><br>
+<form action="/search" method="POST">
+    <label for="searched_team">Team Name: </label>
+    <select name="searched_team" id="searched_team" required>
+        <option value="Atl">Atlanta Hawks</option>
+        <option value="Bos">Boston Celtics</option>
+        <option value="Bro">Brooklyn Nets</option>
+        <option value="Cha">Charlotte Hornets</option>
+        <option value="Chi">Chicago Bulls</option>
+        <option value="Cle">Cleveland Cavaliers</option>
+        <option value="Dal">Dallas Mavericks</option>
+        <option value="Den">Denver Nuggers</option>
+        <option value="Det">Detroit Pistons</option>
+        <option value="Gol">Golden State Warriors</option>
+        <option value="Hou">Houston Rockets</option>
+        <option value="Ind">Indiana Pacers</option>
+        <option value="Lac">LA Clippers</option>
+        <option value="Lal">Los Angeles Lakers</option>
+        <option value="Mem">Memphis Grizzlies</option>
+        <option value="Mia">Miami Heat</option>
+        <option value="Mil">Milwaukee Bucks</option>
+        <option value="Min">Minnesota Timberwolves</option>
+        <option value="Nor">New Orleans Pelicans</option>
+        <option value="Nyk">New York Knicks</option>
+        <option value="Okc">Oklahoma City Thunder</option>
+        <option value="Orl">Orlando Magic</option>
+        <option value="Phi">Philadelphia 76ers</option>
+        <option value="Pho">Phoenix Suns</option>
+        <option value="Por">Portland Trail Blazers</option>
+        <option value="Sac">Sacramento Kings</option>
+        <option value="San">San Antonio Spurs</option>
+        <option value="Tor">Toronto Raptors</option>
+        <option value="Uta">Utah Jazz</option>
+        <option value="Was">Washington Wizards</option>
+    </select><br><br>
+    <input type ="submit" value="Search for team">
+</form>
 <br>
 <p>{{result}}</p>
 <br>

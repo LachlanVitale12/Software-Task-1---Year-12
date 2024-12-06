@@ -21,6 +21,15 @@ def search_players(name):
     connection.close()
     return players
 
+def search_team(team):
+    connection = sqlite3.connect("NBA_Player_Statistics.db")
+    cursor = connection.cursor()
+    cursor.execute(f'SELECT * FROM NBA_Player_Statistics WHERE TEAM = "{team}"')
+    players = cursor.fetchall()
+    connection.commit()
+    connection.close()
+    return players
+
 def add_players(NAME:str, TEAM:str, POS:str, GP:int, MPG:float, FT:float, TWO_P:float, THREE_P:float, eFG:float, PPG:float, RPG:float, APG:float, SPG:float, BPG:float, TPG:float):
     connection = sqlite3.connect("NBA_Player_Statistics.db")
     cursor = connection.cursor()
