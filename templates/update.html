@@ -7,8 +7,6 @@
 
 {% block content %}
 <p>{{result}}</p>
-<br>
-<br>
 <form action="/update" method="POST">
     <label for="id">Players ID </label><br>
     <input type="text" id="id" name="id"><br><br>
@@ -32,4 +30,51 @@
     <input type="text" id="value" name="value"><br><br>
     <input type ="submit" value="Update Player">
 </form>
+<br><br>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Pos</th>
+                <th>GP</th>
+                <th>MPG</th>
+                <th>FT%</th>
+                <th>2P%</th>
+                <th>3P%</th>
+                <th>eFG%</th>
+                <th>PPG</th>
+                <th>RPG</th>
+                <th>APG</th>
+                <th>SPG</th>
+                <th>BPG</th>
+                <th>TPG</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players %}
+            <tr>
+                <td>{{player[0]}}</td>
+                <td>{{player[1]}}</td>
+                <td>{{player[2]}}</td>
+                <td>{{player[3]}}</td>
+                <td>{{player[4]}}</td>
+                <td>{{player[5]}}</td>
+                <td>{{player[6]}}</td>
+                <td>{{player[7]}}</td>
+                <td>{{player[8]}}</td>
+                <td>{{player[9]}}</td>
+                <td>{{player[10]}}</td>
+                <td>{{player[11]}}</td>
+                <td>{{player[12]}}</td>
+                <td>{{player[13]}}</td>
+                <td>{{player[14]}}</td>
+                <td>{{player[15]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
