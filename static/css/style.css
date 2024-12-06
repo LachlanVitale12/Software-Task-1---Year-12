@@ -176,3 +176,11 @@ img {
       display: none; /* hides image if screen width is equal or less than 798px */
     }
 }
+
+.footer {
+    background-color: #007BFF;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
