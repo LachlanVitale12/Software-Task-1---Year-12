@@ -6,13 +6,13 @@
 
 {% block content %}
 <form action="/search" method="POST">
-    <label for="searched_user">Players Name: </label>
+    <label for="searched_user">Players Name: </label><br>
     <input type="text" id="searched_user" name="searched_user" required><br><br>
     <input type ="submit" value="Search for Player">
 </form>
 <br><br>
 <form action="/search" method="POST">
-    <label for="searched_team">Team Name: </label>
+    <label for="searched_team">Team Name: </label><br>
     <select name="searched_team" id="searched_team" required>
         <option value="Atl">Atlanta Hawks</option>
         <option value="Bos">Boston Celtics</option>

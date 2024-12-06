@@ -4,72 +4,40 @@
 <h1>Add Player</h1>
 {% endblock %}
 
-
 {% block content %}
 <p>{{result}}</p>
 
-
 <form action="/add" method="POST">
-    <label for="NAME">Players Full Name: </label>
-    <input type="text" id="NAME" name="NAME" required>
-    <br>
-    <br>
-    <label for="TEAM">Players Team: </label>
-    <input type="text" id="TEAM" name="TEAM" required>
-    <br>
-    <br>
-    <label for="POS">Players Position(s): </label>
-    <input type="text" id="POS" name="POS" required>
-    <br>
-    <br>
-    <label for="GP">Games Played: </label>
-    <input type="text" id="GP" name="GP" required>
-    <br>
-    <br>
-    <label for="MPG">Minutes Per Game: </label>
-    <input type="text" id="MPG" name="MPG" required>
-    <br>
-    <br>
-    <label for="FT">Free Throw %: </label>
-    <input type="text" id="FT" name="FT" required>
-    <br>
-    <br>
-    <label for="TWO_P">Two Point %: </label>
-    <input type="float" id="TWO_P" name="TWO_P" required>
-    <br>
-    <br>
-    <label for="THREE_P">Three Point %: </label>
-    <input type="text" id="THREE_P" name="THREE_P" required>
-    <br>
-    <br>
-    <label for="eFG">Effective Field Goal %: </label>
-    <input type="text" id="eFG" name="eFG" required>
-    <br>
-    <br>
-    <label for="PPG">Points Per Game: </label>
-    <input type="text" id="PPG" name="PPG" required>
-    <br>
-    <br>
-    <label for="RPG">Rebounds Per Game: </label>
-    <input type="text" id="RPG" name="RPG" required>
-    <br>
-    <br>
-    <label for="APG">Assists Per Game: </label>
-    <input type="text" id="APG" name="APG" required>
-    <br>
-    <br>
-    <label for="SPG">Steals Per Game: </label>
-    <input type="text" id="SPG" name="SPG" required>
-    <br>
-    <br>
-    <label for="BPG">Blocks Per Game: </label>
-    <input type="text" id="BPG" name="BPG" required>
-    <br>
-    <br>
-    <label for="TPG">Turnovers Per Game: </label>
-    <input type="text" id="TPG" name="TPG" required>
-    <br>
-    <br>
+    <label for="NAME">Players Full Name: </label><br>
+    <input type="text" id="NAME" name="NAME" required><br><br>
+    <label for="TEAM">Players Team: </label><br>
+    <input type="text" id="TEAM" name="TEAM" required><br><br>
+    <label for="POS">Players Position(s): </label><br>
+    <input type="text" id="POS" name="POS" required><br><br>
+    <label for="GP">Games Played: </label><br>
+    <input type="text" id="GP" name="GP" required><br><br>
+    <label for="MPG">Minutes Per Game: </label><br>
+    <input type="text" id="MPG" name="MPG" required><br><br>
+    <label for="FT">Free Throw %: </label><br>
+    <input type="text" id="FT" name="FT" required><br><br>
+    <label for="TWO_P">Two Point %: </label><br>
+    <input type="float" id="TWO_P" name="TWO_P" required><br><br>
+    <label for="THREE_P">Three Point %: </label><br>
+    <input type="text" id="THREE_P" name="THREE_P" required><br><br>
+    <label for="eFG">Effective Field Goal %: </label><br>
+    <input type="text" id="eFG" name="eFG" required><br><br>
+    <label for="PPG">Points Per Game: </label><br>
+    <input type="text" id="PPG" name="PPG" required><br><br>
+    <label for="RPG">Rebounds Per Game: </label><br>
+    <input type="text" id="RPG" name="RPG" required><br><br>
+    <label for="APG">Assists Per Game: </label><br>
+    <input type="text" id="APG" name="APG" required><br><br>
+    <label for="SPG">Steals Per Game: </label><br>
+    <input type="text" id="SPG" name="SPG" required><br><br>
+    <label for="BPG">Blocks Per Game: </label><br>
+    <input type="text" id="BPG" name="BPG" required><br><br>
+    <label for="TPG">Turnovers Per Game: </label><br>
+    <input type="text" id="TPG" name="TPG" required><br><br>
     <input type ="submit" value="Add Player">
 </form>
 {% endblock %}
