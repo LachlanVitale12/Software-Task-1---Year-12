@@ -16,47 +16,63 @@ ul {
 }
 
 
-/* navbar */
+/* Navbar */
 .navbar {
     background-color: #007BFF;
-    display:flex;
-    overflow:hidden;
+    display: flex;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
-    height:50px;
-    padding:0;
-    margin:0; 
+    height: auto; /* Adjusts height for stacked items */
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; /* Allows wrapping for better responsiveness */
 }
 
-.navbar a{
+.navbar a {
     text-align: center;
     text-decoration: none;
     margin: 0;
     border-radius: 0;
-    font-size: 10px;
+    font-size: 14px;
+    padding: 10px;
+    color: #fff; /* Ensures text is visible on blue background */
 }
 
+/* Responsive Navbar */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        height: auto; /* Allows dynamic height */
+    }
 
-/* General Button Sytles */
+    .navbar a {
+        width: 100%; /* Full width for each link */
+        text-align: center;
+        padding: 15px;
+        box-sizing: border-box; /* Includes padding in width */
+    }
+}
+
+/* General Button Styles */
 .button {
-    display:inline-block;
-    padding:10px 20px;
-    margin:10px;
-    font-size:16px;
-    color:#ffffff;
-    background-color:#007BFF;
-    border:none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007BFF;
+    border: none;
     border-radius: 5px;
     text-decoration: none;
-    cursor :pointer;
-    transition :background-color 0.3s
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/*button hover effect*/
-.button:hover{
+/* Button Hover Effect */
+.button:hover {
     background-color: #0482cb;
 }
-
 
 
 /* Responsive Table Style */
