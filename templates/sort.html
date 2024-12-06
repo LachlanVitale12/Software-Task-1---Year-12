@@ -1,9 +1,5 @@
 {% extends "base.html" %}
-
-{% block header %}
-<h1>Sort Players By Stat</h1>
-{% endblock %}
-
+{% block header %}<h1>Sort Players By Stat</h1>{% endblock %}
 {% block content %}
 <form action="/sort" method="POST">
     <label for="stat">Select a stat:</label><br>
@@ -20,25 +16,14 @@
         <option value="SPG">SPG</option>
         <option value="BPG">BPG</option>
         <option value="TPG">TPG</option>
-    </select>
-
-    <br><br>
-
+    </select><br><br>
     <label for="order">Ascending or Decending:</label><br>
     <select name="order" id="order" required>
         <option value="ASC">Ascending</option>
         <option value="DESC">Decending</option>
-    </select>
-
-    <br><br>
-
+    </select><br><br>
     <input type ="submit" value="Search by stat">
-</form>
-
-
-<br><br>
-
-
+</form><br><br>
 <div class="table-container">
     <table>
         <thead>

@@ -1,5 +1,3 @@
-//This service worker doesnt work
-
 //cache resources list
 const cacheName = "Stat-Tracker-cache-v1"
 const assets = [
@@ -17,7 +15,6 @@ const assets = [
     '/sw.js',
     '/static/offline.html',
 ]
-
 //installation event listener
 self.addEventListener('install', event =>{
     console.log("[Service Worker] Installing Service Worker and Caching Resources...");
@@ -28,7 +25,6 @@ self.addEventListener('install', event =>{
         })
     );
 });
-
 //activation event listener
 self.addEventListener('activate', event =>{
     console.log("[Service Worker] Activating Service Worker and Cleaning Old Caches...");
@@ -45,7 +41,6 @@ self.addEventListener('activate', event =>{
         })
     );
 });
-
 //fetch event listener with offline fallback
 self.addEventListener('fetch', event => {
     console.log("[Service Worker] Fetching Resource...",event.request.url); // logs each fetch request

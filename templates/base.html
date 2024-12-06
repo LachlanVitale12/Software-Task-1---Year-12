@@ -20,11 +20,9 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='/icons/favicon.png') }}">
 </head>
 <body>
-
     <div>
         <h1>{% block header %}{% endblock %}</h1>
     </div>
-    
     <nav class="navbar">
         <a href="/" class="button">Home Page</a>
         <a href="/search" class="button">Search for Player</a>
@@ -33,14 +31,11 @@
         <a href="/delete" class="button">Delete Player</a>
         <a href="/update" class="button">Update Player</a>
         <a href="/index" class="button">Index</a>
-        <br><br>
     </nav>
-
     <div class="row">
         <div class="col-9 col-s-12">
             {% block content %}{% endblock %}
         </div>
-
         <div class="col-3 hiddenimage">
             <br>
             <br>

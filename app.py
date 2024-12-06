@@ -1,27 +1,19 @@
 from flask import Flask, render_template, request, send_file
 from models import all_players, search_players, add_players, delete_players, sort_players, update_players, search_team
-
-
 app = Flask(__name__)
-
 # MANIFEST LOADER
 @app.route('/manifest.json')
 def serve_manifest():
     return send_file('manifest.json', mimetype='application/manifest+json')
-
 # SERVICE WORKER LOADER
 @app.route('/sw.js')
 def serve_sw():
     return send_file('sw.js', mimetype='application/javascript')
-
-
 # HOMEPAGE
 @app.route('/')
 def home():
     players = all_players()
     return render_template('home.html', players=players)
-
-
 # SEARCH PLAYER PAGE
 @app.route('/search', methods = ["POST","GET"])
 def search():
@@ -36,8 +28,6 @@ def search():
             players = search_team(team_name)
     result = f"{len(players)} player(s) found"
     return render_template('search.html', players=players, result=result)
-
-
 # SORT BY PLAYER STAT PAGE
 @app.route('/sort', methods = ["POST","GET"])
 def sort():
@@ -48,8 +38,6 @@ def sort():
         order = request.form.get("order")
         players = sort_players(stat, order)
     return render_template('sort.html', players=players)
-
-
 # ADD PLAYER PAGE
 @app.route('/add', methods = ["POST","GET"])
 def add():
@@ -57,7 +45,6 @@ def add():
     if request.method == "GET":
         players = all_players()
     elif request.method == "POST":
-
         # ERROR CHECKING SYSTEM
         # Sees if an error occurs when any of the variables are set to their proper data type
         # Adds the user through the function at the bottom and returns the result of it being successful
@@ -84,8 +71,6 @@ def add():
             players = all_players()
             result = "Error: incorrect data types"
     return render_template('add.html', players=players, result=result)
-
-
 # DELETE PLAYER PAGE
 @app.route('/delete', methods = ["POST","GET"])
 def delete():
@@ -97,8 +82,6 @@ def delete():
         players = delete_players(output)
         result = "Player Deleted"
     return render_template('delete.html', players=players, result=result)
-
-
 # UPDATE PLAYER PAGE
 @app.route('/update', methods = ["POST","GET"])
 def update():
@@ -106,7 +89,6 @@ def update():
     if request.method == "GET":
         players = all_players()
     elif request.method == "POST":
-
         # ERROR CHECKING SYSTEM
         # Sees if an error occurs when any of the variables are set to their proper data type
         # Adds the user through the function at the bottom and returns the result of it being successful
@@ -127,13 +109,9 @@ def update():
             players = all_players()
             result = "Error: incorrect data type"
     return render_template('update.html', players=players, result=result)
-
-
 # INDEX PAGE
 @app.route('/index')
 def index():
     return render_template('index.html')
-
-
 if __name__ == ('__main__'):
     app.run(debug=True)

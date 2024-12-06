@@ -1,10 +1,5 @@
 {% extends "base.html" %}
-
-{% block header %}
-<h1>Update Player</h1>
-{% endblock %}
-
-
+{% block header %}<h1>Update Player</h1>{% endblock %}
 {% block content %}
 <p>{{result}}</p>
 <form action="/update" method="POST">
@@ -29,8 +24,7 @@
     <label for="value">New Value: </label><br>
     <input type="text" id="value" name="value"><br><br>
     <input type ="submit" value="Update Player">
-</form>
-<br><br>
+</form><br><br>
 <div class="table-container">
     <table>
         <thead>
