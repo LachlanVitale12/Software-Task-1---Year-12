@@ -2,8 +2,11 @@
 
 //cache resources list
 const cacheName = "Stat-Tracker-cache-v1"
-const urlsToCache = [
+const assets = [
     '/',
+    '/search',
+    '/sort',
+    '/index',
     '/static/css/style.css',
     '/static/icons/favicon.png',
     '/static/icons/icon_144x144.png',
@@ -12,30 +15,29 @@ const urlsToCache = [
     '/static/images/NBA_Image.webp',
     '/manifest.json',
     '/sw.js',
-    '/models.py',
     '/static/offline.html',
-];
+]
 
 //installation event listener
-self.addEventListener('install', event => {
+self.addEventListener('install', event =>{
     console.log("[Service Worker] Installing Service Worker and Caching Resources...");
     event.waitUntil(
         caches.open(cacheName).then(cache => {
             console.log("[Service Worker] Caching files...");
-            return cache.addAll(urlsToCache);
+            return cache.addAll(assets);
         })
     );
 });
 
 //activation event listener
-self.addEventListener('activate', event => {
+self.addEventListener('activate', event =>{
     console.log("[Service Worker] Activating Service Worker and Cleaning Old Caches...");
     event.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(
-                keys.map(key => {
-                    if (key !== cacheName) {
-                        console.log("[Service Worker] Deleting Old Cache...", key);
+                keys.map(key =>{
+                    if (key !== cacheName){
+                        console.log("[Service Worker] Deleting Old Cache...",key);
                         return caches.delete(key);
                     }
                 })
@@ -59,5 +61,6 @@ self.addEventListener('fetch', event => {
                 return caches.match('/static/offline.html'); // serves offline fallback if network fails
             });
         })
+        
     );
 });
