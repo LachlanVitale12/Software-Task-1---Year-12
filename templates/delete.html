@@ -1,15 +1,19 @@
+<!--Uses Base.html-->
 {% extends "base.html" %}
 {% block header %}<h1>Delete Player</h1>{% endblock %}
 {% block content %}
+<!--created a POST method to remove a player from the database-->
 <form action="/delete" method="POST">
     <label for="deleted_user">Players ID: </label><br>
     <input type="text" id="deleted_user" name="deleted_user" required><br><br>
     <input type ="submit" value="Delete Player">
 </form><br>
+<!--displayed the result of the deletion-->
 <p>{{result}}</p><br><br>
+<!--Created a table-->
 <div class="table-container">
     <table>
-        <thead>
+        <thead> 
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -30,6 +34,8 @@
             </tr>
         </thead>
         <tbody>
+            <!--for each player in the players database that are returned this repeats
+            this effectively displays everyplayer in the database-->
             {% for player in players %}
             <tr>
                 <td>{{player[0]}}</td>

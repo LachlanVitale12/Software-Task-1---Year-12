@@ -1,6 +1,8 @@
+<!--Uses Base.html-->
 {% extends "base.html" %}
 {% block header %}<h1>NBA Player Statistics 2023/24 Season</h1>{% endblock %}
 {% block content %}
+<!--Creates a table-->
 <div class="table-container">
     <table>
         <thead>
@@ -24,6 +26,8 @@
             </tr>
         </thead>
         <tbody>
+            <!--for each player in the players database that are returned this repeats
+            this effectively displays everyplayer in the database-->
             {% for player in players %}
             <tr>
                 <td>{{player[0]}}</td>

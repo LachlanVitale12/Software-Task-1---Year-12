@@ -1,11 +1,16 @@
+<!--uses base.html-->
 {% extends "base.html" %}
 {% block header %}<h1>Search for Player</h1>{% endblock %}
 {% block content %}
+<!--Creates a POST method form to search for a players name and 
+display them from the database-->
 <form action="/search" method="POST">
-    <label for="searched_user">Players Name: </label><br>
-    <input type="text" id="searched_user" name="searched_user" required><br><br>
+    <label for="searched_player">Players Name: </label><br>
+    <input type="text" id="searched_player" name="searched_player" required><br><br>
     <input type ="submit" value="Search for Player">
 </form><br><br>
+<!--Creates a POST method form to search for all players 
+who are apart of the selected team from the dropdown box-->
 <form action="/search" method="POST">
     <label for="searched_team">Team Name: </label><br>
     <select name="searched_team" id="searched_team" required>
@@ -42,7 +47,9 @@
     </select><br><br>
     <input type ="submit" value="Search for team">
 </form><br>
+<!--displays the result-->
 <p>{{result}}</p><br>
+<!--creates a table-->
 <div class="table-container">
     <table>
         <thead>
@@ -66,6 +73,8 @@
             </tr>
         </thead>
         <tbody>
+            <!--for each player in the players database that are returned this repeats
+            this effectively displays everyplayer in the database-->
             {% for player in players %}
             <tr>
                 <td>{{player[0]}}</td>

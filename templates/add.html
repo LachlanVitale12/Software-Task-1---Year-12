@@ -1,7 +1,10 @@
+<!--uses base.html-->
 {% extends "base.html" %}
 {% block header %}<h1>Add Player</h1>{% endblock %}
 {% block content %}
+<!--displays result-->
 <p>{{result}}</p>
+<!--user fills all spots on form with the new players data-->
 <form action="/add" method="POST">
     <label for="NAME">Players Full Name: </label><br>
     <input type="text" id="NAME" name="NAME" required><br><br>

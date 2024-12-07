@@ -1,6 +1,9 @@
+<!--uses base.html-->
 {% extends "base.html" %}
 {% block header %}<h1>Sort Players By Stat</h1>{% endblock %}
 {% block content %}
+<!--creates a POST method form that allows the user to sort the database
+by a certain stat in acending or decending order-->
 <form action="/sort" method="POST">
     <label for="stat">Select a stat:</label><br>
     <select name="stat" id="stat" required>
@@ -24,6 +27,7 @@
     </select><br><br>
     <input type ="submit" value="Search by stat">
 </form><br><br>
+<!--creates a table-->
 <div class="table-container">
     <table>
         <thead>
@@ -47,6 +51,8 @@
             </tr>
         </thead>
         <tbody>
+            <!--for each player in the players database that are returned this repeats
+            this effectively displays everyplayer in the database-->
             {% for player in players %}
             <tr>
                 <td>{{player[0]}}</td>

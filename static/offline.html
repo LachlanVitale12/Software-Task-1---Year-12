@@ -1,10 +1,13 @@
+<!--offline page is served if user is offline-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Connects manifest and stylesheet as well as making it responsive-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="manifest" href="/manifest.json">
+    <!--Connects service worker-->
     <script>
         if ('serviceWorker' in navigator){
             window.addEventListener('load', function(){
@@ -16,10 +19,12 @@
             });
         }
     </script>
+    <!--loads favicon and title-->
     <title>NBA Stat Tracker 2023/24</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='/icons/favicon.png') }}">
 </head>
 <body>
+    <!--sends user back to homepage-->
     <p>It looks like you're currently offline. Some features or content may not be available.<br><br>Try reconnecting to the internet and refreshing the page</p><br><br>
     <a href="/">Home Page</a>
 </body>

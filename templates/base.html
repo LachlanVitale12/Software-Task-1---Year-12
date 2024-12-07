@@ -1,10 +1,13 @@
+<!--All other template HTML pages use this as a base-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Connects manifest and stylesheet as well as making it responsive-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="manifest" href="/manifest.json">
+    <!--Connects service worker-->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function(){
@@ -16,13 +19,16 @@
             });
         }
     </script>
+    <!--loads favicon and title-->
     <title>NBA Stat Tracker 2023/24</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='/icons/favicon.png') }}">
 </head>
 <body>
+    <!--here is where the heading of each page will fit into-->
     <div>
         <h1>{% block header %}{% endblock %}</h1>
     </div>
+    <!--creates a dynamic navbar through css where the user can navigate-->
     <nav class="navbar">
         <a href="/" class="button">Home Page</a>
         <a href="/search" class="button">Search for Player</a>
@@ -32,17 +38,22 @@
         <a href="/update" class="button">Update Player</a>
         <a href="/index" class="button">Index</a>
     </nav>
+    <!--this is where the main content starts-->
     <div class="row">
+        <!--here is where the main content of each other template will fit into-->
         <div class="col-9 col-s-12">
             {% block content %}{% endblock %}
         </div>
+        <!--here-->
         <div class="col-3 hiddenimage">
-            <br>
-            <br>
+            <br><br>
+            <!--Using jinja I ser the variable random_number to a random num between 1-10-->
             {% set random_number = range(1, 11)|random %}
-            <img src="{{ url_for('static', filename='images/NBA_Image' + random_number|string + '.webp') }}?{{ random_number }}" alt="NBA_Image" loading="lazy">
+            <!--the random number is then used to randomise the image-->
+            <img src="{{ url_for('static', filename='images/NBA_Image' + random_number|string + '.webp') }}" alt="NBA_Image" loading="lazy">
         </div>
     </div>
+    <!--footer at bottom of webpage-->
     <div class="footer">
         <p>By Lachlan Vitale 2024</p>
     </div>

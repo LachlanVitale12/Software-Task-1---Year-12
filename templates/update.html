@@ -1,7 +1,12 @@
+<!--uses base.html-->
 {% extends "base.html" %}
 {% block header %}<h1>Update Player</h1>{% endblock %}
 {% block content %}
+<!--displays the result-->
 <p>{{result}}</p>
+<!--creates a POST method form that allows a user to input a players id
+then the user can select a stat to change from the drop down 
+and enter the new value-->
 <form action="/update" method="POST">
     <label for="id">Players ID </label><br>
     <input type="text" id="id" name="id"><br><br>
@@ -25,6 +30,7 @@
     <input type="text" id="value" name="value"><br><br>
     <input type ="submit" value="Update Player">
 </form><br><br>
+<!--creates a table-->
 <div class="table-container">
     <table>
         <thead>
@@ -48,6 +54,8 @@
             </tr>
         </thead>
         <tbody>
+            <!--for each player in the players database that are returned this repeats
+            this effectively displays everyplayer in the database-->
             {% for player in players %}
             <tr>
                 <td>{{player[0]}}</td>
