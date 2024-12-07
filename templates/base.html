@@ -40,7 +40,7 @@
             <br>
             <br>
             {% set random_number = range(1, 11)|random %}
-            <img src="{{ url_for('static', filename='images/NBA_Image' + random_number|string + '.webp') }}" alt="NBA_Image" loading="lazy">
+            <img src="{{ url_for('static', filename='images/NBA_Image' + random_number|string + '.webp') }}?{{ random_number }}" alt="NBA_Image" loading="lazy">
         </div>
     </div>
     <div class="footer">
