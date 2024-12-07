@@ -39,7 +39,8 @@
         <div class="col-3 hiddenimage">
             <br>
             <br>
-            <img src="{{ url_for('static', filename='images/NBA_Image.webp') }}" alt="NBA_Image" loading="lazy">
+            {% set random_number = range(1, 11)|random %}
+            <img src="{{ url_for('static', filename='images/NBA_Image' + random_number|string + '.webp') }}" alt="NBA_Image" loading="lazy">
         </div>
     </div>
     <div class="footer">
