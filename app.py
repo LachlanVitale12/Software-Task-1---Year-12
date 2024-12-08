@@ -29,7 +29,7 @@ def search():
     if request.method == "GET":
         players = all_players()
     elif request.method == "POST":
-        if "searched_user" in request.form:
+        if "searched_player" in request.form:
             # grabs the input from the 'searched player' id form
             # using that players name, it is put into the search players function
             # the function will return all players whose names are like the inputed name
