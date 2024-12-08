@@ -27,6 +27,7 @@ const assets = [
     '/sw.js',
     '/static/offline.html',
 ]
+
 //installation event listener
 self.addEventListener('install', event =>{
     console.log("[Service Worker] Installing Service Worker and Caching Resources..."); // logs if service worker is being initiallised
@@ -37,6 +38,7 @@ self.addEventListener('install', event =>{
         })
     );
 });
+
 //activation event listener
 self.addEventListener('activate', event =>{
     console.log("[Service Worker] Activating Service Worker and Cleaning Old Caches..."); // logs if the service worker is activating and old cache is being cleaned
@@ -53,6 +55,7 @@ self.addEventListener('activate', event =>{
         })
     );
 });
+
 //fetch event listener with offline fallback
 self.addEventListener('fetch', event => {
     console.log("[Service Worker] Fetching Resource...",event.request.url); // logs each fetch request

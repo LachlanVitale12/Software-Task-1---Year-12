@@ -47,11 +47,10 @@
         </div>
         <!--here-->
         <div class="col-3 hiddenimage">
-            <br><br>
             <!--Using jinja I ser the variable random_number to a random num between 1-10-->
             {% set random_number = range(1, 11)|random %}
             <!--the random number is then used to randomise the image-->
-            <img src="{{ url_for('static', filename='images/NBA_Image' + random_number|string + '.webp') }}" alt="NBA_Image" loading="lazy">
+            <br><br><img src="{{ url_for('static', filename='images/NBA_Image' + random_number|string + '.webp') }}" alt="NBA_Image" loading="lazy">
         </div>
     </div>
     <!--footer at bottom of webpage-->
