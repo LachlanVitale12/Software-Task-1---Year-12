@@ -16,7 +16,7 @@ ul {
 /* Navbar */
 /* creates a class that is used to create a navbar*/
 .navbar {
-    background-color: #007BFF;
+    background-color: #0056b3;
     display: flex;
     overflow: hidden;
     justify-content: center;
@@ -55,7 +55,7 @@ ul {
     margin: 10px;
     font-size: 16px;
     color: #ffffff;
-    background-color: #007BFF;
+    background-color: #0056b3;
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -64,7 +64,7 @@ ul {
 }
 /* Button Hover Effect */
 .button:hover {
-    background-color: #0482cb;
+    background-color: #003f8a;
 }
 /* Responsive Table Style */
 table {
@@ -169,7 +169,7 @@ img {
 }
 /* Creates a footer class */
 .footer {
-    background-color: #007BFF;
+    background-color: #0056b3;
     color: #ffffff;
     text-align: center;
     font-size: 12px;
